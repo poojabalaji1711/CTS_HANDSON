@@ -41,4 +41,9 @@ public class Country {
     public void setCoName(String coName) {
         this.coName = coName;
     }
+
+    @Override
+    public String toString() {
+        return "Country{coCode='" + coCode + "', coName='" + coName + "'}";
+    }
 }
