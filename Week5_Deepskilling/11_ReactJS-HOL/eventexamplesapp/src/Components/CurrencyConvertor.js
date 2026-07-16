@@ -1,0 +1,68 @@
+import React, { useState } from "react";
+
+function CurrencyConvertor() {
+  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (amount === "") {
+      alert("Enter Amount");
+      return;
+    }
+
+    const euro = (parseFloat(amount) / 90).toFixed(2);
+
+    alert("Converting to Euro Amount is " + euro);
+
+    setCurrency("Euro");
+  };
+
+  return (
+    <div>
+      <h1 style={{ color: "green" }}>
+        Currency Convertor!!!
+      </h1>
+
+      <form onSubmit={handleSubmit}>
+        <table>
+          <tbody>
+            <tr>
+              <td>Amount</td>
+              <td>
+                <input
+                  type="number"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>Currency</td>
+              <td>
+                <input
+                  type="text"
+                  value={currency}
+                  readOnly
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>
+                <button type="submit">
+                  Submit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  );
+}
+
+export default CurrencyConvertor;
